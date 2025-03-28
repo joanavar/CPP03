@@ -22,8 +22,8 @@ int main()
     ply2.beRepaired(2);
 
     std::cout << "Try to attack\n";
-    ply1.attack("Mp7");
+    ply2.attack("Rompedor de huevos");
     std::cout << "oh is critical !!\n";
-    ply2.takeDamage(15);
+    ply1.takeDamage(15);
     return (0);
 }
