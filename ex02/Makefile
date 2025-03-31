@@ -13,7 +13,8 @@
 NAME		=	ex01
 SRCS		=	ClapTrap.cpp\
 				Main.cpp\
-				ScavTrap.cpp
+				ScavTrap.cpp\
+				FragTrap.cpp
 
 CC			=	c++
 
