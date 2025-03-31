@@ -46,7 +46,7 @@ ClapTrap    &ClapTrap::operator=(const ClapTrap &copy)
 
 void    ClapTrap::setAttackDamage(unsigned int points)
 {
-      std::cout << getClassName() <<  getName() << " sets it's attack damage whit " << points << " points" << std::endl;
+      std::cout << getClassName() <<  _name << " sets it's attack damage whit " << points << " points" << std::endl;
         _attack_damage = points;
 }
 void    ClapTrap::attack(std::string const &target)
