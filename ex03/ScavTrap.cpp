@@ -45,7 +45,7 @@ void    ScavTrap::attack(const std::string &target)
 {
     if(!_defEP)
     {
-        std::cout << getClassName() << GREEN << getName() << RST << RED << " can't attack. No energy points" RST <<std::endl;
+        std::cout << getClassName() << " " << GREEN << getName() << RST << RED << " can't attack. No energy points" RST <<std::endl;
         return ;
     }
     if (!_defAD)

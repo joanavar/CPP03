@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 #include "ClapTrap.hpp"
-#include "Colors.hpp"
 
 class ScavTrap : virtual public ClapTrap {
 

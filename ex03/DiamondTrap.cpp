@@ -26,7 +26,7 @@ DiamondTrap::DiamondTrap(std::string name)
 }
 
 DiamondTrap::DiamondTrap(std::string name, unsigned int hp, unsigned int ep, unsigned int ad)
-: ClapTrap(name + "ClapName", hp, ep, ad)
+: ClapTrap(name + " ClapName", hp, ep, ad)
 {
   std::cout << "DiamondTrap Constructor called for " << _name << std::endl;
 }

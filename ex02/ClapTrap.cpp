@@ -1,10 +1,18 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string _name):hitpoints(10), energy_points(10), attack_damage(0), name(_name)
+/*
+* Default values
+ */
+const std::string ClapTrap::_defName = "ClapTrapNoName";
+const unsigned int ClapTrap::_defHP = 10;
+const unsigned int ClapTrap::_defEP = 10;
+const unsigned int ClapTrap::_defAD = 0;
+
+ClapTrap::ClapTrap(std::string _name):hitpoints(_defHP), energy_points(_defEP), attack_damage(_defAD), name(_defName)
 {
     std::cout << "Constructor called\n";
 }
-ClapTrap::ClapTrap(void):hitpoints(10), energy_points(10), attack_damage(0), name("unnamed")
+ClapTrap::ClapTrap(void):hitpoints(_defHP), energy_points(_defEP), attack_damage(_defAD), name(_defName)
 {
     std::cout << "Default constructor called\n";
 }
@@ -55,11 +63,11 @@ void    ClapTrap::attack(std::string const &target)
         std::cout << "ClapTrap " << getName() << " can't attack. No Damage\n";
         return ;
     }
-    if (!hitpoints)
+    /*if (!hitpoints)
     {
         std::cout << "ClapTrap " << getName() << " no hitpoints\n";
         exit(0);   
-    }
+    }*/
 
     std::cout << "ClapTrap " << getName() << " attacks " << target << " causing " << attack_damage << " points damage\n";
     --energy_points;
@@ -67,19 +75,17 @@ void    ClapTrap::attack(std::string const &target)
 
 void    ClapTrap::beRepaired(unsigned int amount)
 {
-    if(!energy_points)
-    {
-        std::cout << "ClapTrap " << getName() << " can't attack. No energy points\n";
-        return ;
-    }
-    if(!hitpoints)
-    {
-        std::cout << "ClapTrap " << getName() << " no hitpoints\n";
-        exit(0);   
-    }
-    std::cout << "ClapTrap " << getName() << " repaired " << amount << " hit points." << std::endl;
-    hitpoints = hitpoints + amount;
-    --energy_points;
+    if (! energy_points) {
+    std::cout << "ClapTrap " << name
+              << " can't repair itself. No energy points left." << std::endl;
+    return;
+  }
+
+  std::cout << "ClapTrap " << name << " repaired " << amount
+            << " hit points." << std::endl;
+
+  hitpoints += amount;
+  --energy_points;
 }
 
 void    ClapTrap::takeDamage(unsigned int amount)

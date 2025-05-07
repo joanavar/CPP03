@@ -14,7 +14,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name, hitpoints, energy_points, 
 ScavTrap::ScavTrap(std::string name, unsigned int hp, unsigned int ep, unsigned int ad ) 
     : ClapTrap(name, hitpoints, energy_points, attack_damage)
 {
-  std::cout << "Constructor called for " << GREEN << getName() << RST << std::endl;
+  std::cout << "Constructor called for " << getName()  << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(name, hitpoints, energy_points, attack_damage)
@@ -24,7 +24,7 @@ ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(name, hitpoints, energy_poin
 
 ScavTrap::~ScavTrap(void)
 {
-    std::cout << "ScavTrap destructor called for " << GREEN << getName() << RST << std::endl;
+    std::cout << "ScavTrap destructor called for "  << getName() << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &copy)
@@ -41,21 +41,21 @@ void    ScavTrap::attack(const std::string &target)
 {
     if(!energy_points)
     {
-        std::cout << "ClapTrap " << GREEN << getName() << RST << RED << " can't attack. No energy points" RST <<std::endl;
+        std::cout << "ClapTrap "  << getName()  << " can't attack. No energy points" <<std::endl;
         return ;
     }
     if (!attack_damage)
     {
-        std::cout << "ClapTrap " << GREEN << getName() << RST << RED << " can't attack. No Damage" << RST <<std::endl;
+        std::cout << "ClapTrap "  << getName() << " can't attack. No Damage" <<std::endl;
         return ;
     }
     if (!hitpoints)
     {
-        std::cout << "ClapTrap " << GREEN << getName() << RST << RED << " no hitpoints" << RST <<std::endl;
+        std::cout << "ClapTrap " << getName() << " no hitpoints" <<std::endl;
         exit(0);   
     }
 
-    std::cout << "ClapTrap " << GREEN << getName() << RST << " attacks " << target << " causing " << YELLOW <<  attack_damage << RST << " points damage\n";
+    std::cout << "ClapTrap " << getName() << " attacks " << target << " causing " <<  attack_damage << " points damage\n";
     
     --energy_points;
 }

@@ -1,26 +1,38 @@
+#include <iostream>
+
 #include "Colors.hpp"
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 #include "DiamondTrap.hpp"
 
-int main(void)
-{
+void printTestHeader(const std::string& message) {
+	std::cout << GREEN << message << std::endl;
+	for (unsigned long i = 0; i < message.length(); i++)
+		std::cout << "=";
+	std::cout << RST << std::endl;
+}
+
+void printSubtitle(const std::string& message) {
+	std::cout << GREEN << message << RST << std::endl;
+}
+
+int main(void) {
 	std::cout << std::endl;
-    std::cout << std::endl << "Create DiamondTrap" << std::endl;
+	printTestHeader("Create DiamondTrap");
 	DiamondTrap d1("Henry");
 	DiamondTrap d2;
 
 	std::cout << std::endl;
-    std::cout << std::endl << "Create ScavTrap" << std::endl;
+	printTestHeader("Create ScavTrap");
 	ScavTrap s1;
 
     std::cout << std::endl;
-    std::cout << std::endl << "Create FragTrap" << std::endl;
+    printTestHeader("Create FragTrap");
     FragTrap f1;
 
 	std::cout << std::endl;
-    std::cout << std::endl << "Test attack" << std::endl;
+	printTestHeader("Test attack");
 	d1.attack("Somebody");
 	s1.setAttackDamage(53);
 	f1.setAttackDamage(13);
@@ -28,21 +40,22 @@ int main(void)
 	f1.attack("someone else");
 
 	std::cout << std::endl;
-    std::cout << std::endl << "Test whoAmI" << std::endl;
+	printTestHeader("Test whoAmI");
 	d1.whoAmI();
 	d2.whoAmI();
 
-	std::cout << std::endl;
-    std::cout << std::endl << "Print info before assignment operator call" << std::endl;
-	//d1.getInfo();
+	/*std::cout << std::endl;
+	printTestHeader("Print info before assignment operator call");
+	d1.getInfo();
 	d1 = d2;
 	d1.whoAmI();
-	d2.whoAmI();
+	d2.whoAmI();*/
 
 	std::cout << std::endl;
-    std::cout << std::endl << "Test high fives" << std::endl;
+	printTestHeader("Test high fives");
 	f1.highFivesGuys();
 	
 	std::cout << std::endl;
-    std::cout << std::endl << "Destructors" << std::endl;
-	return 0;}
+    printTestHeader("Destructors");
+	return 0;
+}

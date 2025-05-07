@@ -8,11 +8,11 @@ const unsigned int ClapTrap::_defAD = 0;
 
 ClapTrap::ClapTrap(std::string name):_hitpoints(_defHP), _energy_points(_defEP), _attack_damage(_defAD), _name(_defName)
 {
-    std::cout << "Constructor called\n";
+    //std::cout << "Constructor called\n";
 }
 ClapTrap::ClapTrap(void):_hitpoints(_defHP), _energy_points(_defEP), _attack_damage(_defAD), _name("unnamed")
 {
-    std::cout << "Default constructor called\n";
+    //std::cout << "Default constructor called\n";
 }
 
 ClapTrap::~ClapTrap(){ std::cout << "destructor called\n";}
@@ -20,7 +20,7 @@ ClapTrap::~ClapTrap(){ std::cout << "destructor called\n";}
 ClapTrap::ClapTrap(const ClapTrap &copy):_name(copy.getName()), _hitpoints(copy.getHitpoints()),
     _energy_points(copy.getEnergyPoints()), _attack_damage(copy.getAttackDamage())
 {
-    std::cout << "Constructor copy called\n";
+    //std::cout << "Constructor copy called\n";
    
 }
 

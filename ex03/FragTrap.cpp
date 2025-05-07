@@ -7,7 +7,7 @@ const unsigned int FragTrap::_defAD = 30;
 
 FragTrap::FragTrap(void) : ClapTrap("FragTrap", _defHP, _defEP, _defAD)
 {
-    std::cout << " FragTrap Constructor default is called\n";
+    std::cout << "FragTrap Constructor default is called\n";
 }
 
 FragTrap::~FragTrap(void)
@@ -41,7 +41,7 @@ FragTrap    &FragTrap::operator=(const FragTrap &copy)
 void    FragTrap::highFivesGuys(void)
 {
     std::cout << getClassName() << getName() << " rises its hand requesting a high five" << std::endl;
-    std::cout << "PRESS ENTER TO HIGH FIVE" << std::endl;
+    std::cout << "PRESS ENTER TO HIGH FIVE " << std::endl;
     getchar();
     std::cout << "CLAP !\n";
 }
