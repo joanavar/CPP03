@@ -44,12 +44,6 @@ int main(void) {
 	d1.whoAmI();
 	d2.whoAmI();
 
-	/*std::cout << std::endl;
-	printTestHeader("Print info before assignment operator call");
-	d1.getInfo();
-	d1 = d2;
-	d1.whoAmI();
-	d2.whoAmI();*/
 
 	std::cout << std::endl;
 	printTestHeader("Test high fives");
