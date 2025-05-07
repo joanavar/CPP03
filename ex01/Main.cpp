@@ -36,7 +36,7 @@ int main(void) {
 	printSubtitle("Create an instance with default constructor");
 	ScavTrap ply3;
 	std::cout << "ScavTrap 3 name: " << ply3.getName() << std::endl;
-	std::cout << "ScavTrap 3 enrgy: " << ply3.getEnergyPoints() << std::endl;
+	std::cout << "ScavTrap 3 energy: " << ply3.getEnergyPoints() << std::endl;
 	printSubtitle("Using asignment operator to clone the second ScavTrap");
 	ply3 = ply1;
 	std::cout << "ScavTrap 3 name: " << ply3.getName() << std::endl;

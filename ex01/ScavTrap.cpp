@@ -1,23 +1,31 @@
 #include "ScavTrap.hpp"
 #include <iostream>
 
+/*
+* Default values
+ */
+const std::string ScavTrap::_defName = "ScavTrap";
+const unsigned int ScavTrap::_defHP = 100;
+const unsigned int ScavTrap::_defEP = 50;
+const unsigned int ScavTrap::_defAD = 20;
 
-ScavTrap::ScavTrap(void) : ClapTrap(name, hitpoints, energy_points, attack_damage)
+
+ScavTrap::ScavTrap(void) : ClapTrap(_defName, _defHP, _defEP, _defAD)
 {
   std::cout << "ScavTrap default constructor called\n";
 }
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name, hitpoints, energy_points, attack_damage)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(_defName, _defHP, _defEP, _defAD)
 {
   std::cout << "ScavTrap constructor called\n";
 }
 
 ScavTrap::ScavTrap(std::string name, unsigned int hp, unsigned int ep, unsigned int ad ) 
-    : ClapTrap(name, hitpoints, energy_points, attack_damage)
+    : ClapTrap(name, hp, ep, ad)
 {
   std::cout << "Constructor called for " << GREEN << getName() << RST << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(name, hitpoints, energy_points, attack_damage)
+ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy)
 {
   std::cout << "ScavTrap copy constructor called\n";
 }
@@ -39,23 +47,28 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &copy)
 
 void    ScavTrap::attack(const std::string &target)
 {
-    if(!energy_points)
+    if(!_energyPoints)
     {
         std::cout << "ClapTrap " << GREEN << getName() << RST << RED << " can't attack. No energy points" RST <<std::endl;
         return ;
     }
-    if (!attack_damage)
+    if (!_attackDamage)
     {
         std::cout << "ClapTrap " << GREEN << getName() << RST << RED << " can't attack. No Damage" << RST <<std::endl;
         return ;
     }
-    if (!hitpoints)
+    if (!_hitPoints)
     {
         std::cout << "ClapTrap " << GREEN << getName() << RST << RED << " no hitpoints" << RST <<std::endl;
         exit(0);   
     }
 
-    std::cout << "ClapTrap " << GREEN << getName() << RST << " attacks " << target << " causing " << YELLOW <<  attack_damage << RST << " points damage\n";
+    std::cout << "ClapTrap " << GREEN << getName() << RST << " attacks " << target << " causing " << YELLOW <<  _attackDamage << RST << " points damage\n";
     
-    --energy_points;
+    --_energyPoints;
+}
+
+void ScavTrap::guardGate(void)
+{
+  std::cout << "ScavTrap " << _name << " is now in Gate keeper mode" << std::endl;
 }

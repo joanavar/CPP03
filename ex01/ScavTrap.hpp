@@ -21,12 +21,11 @@ public:
   void attack(const std::string& target);
   void guardGate(void);
 
-private:
-    
-        std::string name;
-        int         hitpoints;
-        int         energy_points;
-        int         attack_damage;
+protected:
+  static const std::string _defName;
+  static const unsigned int _defHP;
+  static const unsigned int _defEP;
+  static const unsigned int _defAD;
 };
 
 #endif
